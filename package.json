@@ -1,0 +1,26 @@
+{
+  "name": "cli-hsl-bike",
+  "version": "0.1.0",
+  "description": "CLI utility to query HSL bike open API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "cli-hsl-bike": "./index.js"
+  },
+  "keywords": [
+    "bike",
+    "opendata",
+    "cli"
+  ],
+  "author": "Toni Ahola",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.11.0",
+    "chalk": "^1.1.3",
+    "cli-table2": "^0.2.0",
+    "geolib": "^2.0.20",
+    "ramda": "^0.21.0"
+  }
+}
