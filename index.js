@@ -17,7 +17,7 @@ if (process.argv.length<3) {
 
 var targetStation = process.argv[2];
 
-var addStation = function(station) {
+var addStation = (station) => {
     var totalSpaces = station.bikesAvailable + station.spacesAvailable;
     var distance = station.distance > 0 ? station.distance + 'm' : '';
     var amountColor = station.bikesAvailable < 2 ? chalk.red : chalk.yellow;
@@ -28,8 +28,8 @@ var addStations = R.forEach(addStation);
 
 var findTargetStationByName = R.find(R.propEq('name', targetStation));
 
-var renameKeys = R.curry(function(keysMap, obj) {
-  return R.reduce(function (acc, key) {
+var renameKeys = R.curry((keysMap, obj) => {
+  return R.reduce((acc, key) => {
     acc[keysMap[key] || key] = obj[key];
     return acc;
   }, {}, R.keys(obj));
@@ -45,11 +45,13 @@ var instance = axios.create({
 });
 
 instance.get('http://api.digitransit.fi/routing/v1/routers/hsl/bike_rental')
-    .then(function (result) {
+    .then((result) => {
         var stations = XYtoLatLong(result.data.stations);
         var targetStation = findTargetStationByName(stations);
         var nearestStations = R.slice(0, 5, geolib.orderByDistance(targetStation, stations));
         addStations(nearestStations);
+    })
+    .then(() => {
         console.log(table.toString());
     })
     .catch(function (error) {
