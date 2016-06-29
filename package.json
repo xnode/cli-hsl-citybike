@@ -7,8 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "cli-hsl-bike": "./index.js"
+    "cli-hsl-bike": "./cli.js"
   },
+  "engines" : { 
+    "node" : ">=6" 
+  }, 
   "keywords": [
     "bike",
     "opendata",
@@ -20,6 +23,7 @@
     "axios": "^0.12.0",
     "chalk": "^1.1.3",
     "cli-table2": "^0.2.0",
+    "commander": "^2.9.0",
     "geolib": "^2.0.20",
     "ramda": "^0.21.0"
   }

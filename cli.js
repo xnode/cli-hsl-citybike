@@ -2,6 +2,8 @@
 
 'use strict';
 
+var program = require('commander');
+var packageInfo = require('./package.json');
 var R = require('ramda');
 
 var chalk = require('chalk');
@@ -9,9 +11,16 @@ var Table = require('cli-table2');
 
 var hslBike = require('./lib/hsl-bike');
 
-if (process.argv.length<3) {
-    console.log('Usage: cli-hsl-bike station');
-    return process.exit(0);
+program
+    .usage('[options] <station>')
+    .version(packageInfo.version)
+    .description(packageInfo.description)
+    .option('-j, --json', 'Output JSON.')
+    .option('-s, --simple', 'Output one line')
+    .parse(process.argv);
+
+if (!program.args.length) {
+    program.help();
 }
 
 var targetStation = process.argv[2];
