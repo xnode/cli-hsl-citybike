@@ -23,7 +23,9 @@ if (!program.args.length) {
     program.help();
 }
 
-var targetStation = process.argv[2];
+var targetStation = program.args[0];
+
+var amountOfResults = program.simple ? 1 : 5;
 
 var makeStationTable = (nearestStations) => {
      var table = new Table({ style:{border:[ ],header:[]} });
@@ -39,12 +41,13 @@ var addSingleStation = R.curry((table, station) => {
                  amountColor(station.bikesAvailable + '/' + totalSpaces)]);
 });
 
-hslBike.fetch(targetStation)
+hslBike.fetch(targetStation, amountOfResults)
     .then(makeStationTable)
     .then((table) => {
         console.log(table.toString());
     })
     .catch(function (error) {
         console.log(error);
+        program.help();
     });
     
