@@ -12,7 +12,7 @@ program
     .version(packageInfo.version)
     .description(packageInfo.description)
     .option('-j, --json', 'Output JSON.')
-    .option('-s, --simple', 'Output one line')
+    .option('-s, --simple', 'Output one result.')
     .parse(process.argv);
 
 if (!program.args.length) {
