@@ -4,7 +4,7 @@ Tool for querying HSL city bike public API.
 
 ## Installing
 
-``` npm install -g ````
+``` npm install -g ```
 
 ## Usage
 
