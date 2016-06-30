@@ -23,13 +23,16 @@ var targetStation = program.args[0];
 
 var amountOfResults = program.simple ? 1 : 5;
 
-var formatResults = program.simple ? require('./lib/output/simple') : require('./lib/output/table');
+if (program.simple) {
+    var printResults = require('./lib/output/simple');
+} else if (program.json) {
+    var printResults = require('./lib/output/json');
+} else {
+    var printResults = require('./lib/output/table');
+}
 
 hslBike.getByStation(targetStation, amountOfResults)
-    .then(formatResults)
-    .then((result) => {
-        console.log(result.toString());
-    })
+    .then(printResults)
     .catch(function (error) {
         console.log(error);
         program.help();
