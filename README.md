@@ -2,6 +2,10 @@
 
 Tool for querying HSL city bike public API.
 
+## Installing
+
+``` npm install -g ````
+
 ## Usage
 
 ```cli-hsl-bike [options] <station>````
