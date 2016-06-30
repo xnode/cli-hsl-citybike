@@ -25,7 +25,7 @@ var amountOfResults = program.simple ? 1 : 5;
 
 var formatResults = program.simple ? require('./lib/output/simple') : require('./lib/output/table');
 
-hslBike.fetch(targetStation, amountOfResults)
+hslBike.getByStation(targetStation, amountOfResults)
     .then(formatResults)
     .then((result) => {
         console.log(result.toString());
