@@ -22,4 +22,14 @@ that station.
  -s, --simple   Output one result.
 ```
 
+### Tmux
+
+You could use this with tmux with command like this:
+
+````
+tmux set -g status-left ‘#[fg=green]#(cli-hsl-bike -s "Karhupuisto")‘
+````
+
+I suggest that you set your status update interval to be a minute or maybe slower.
+
 
