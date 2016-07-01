@@ -4,14 +4,14 @@
   "description": "CLI utility to query HSL bike open API.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/jasmine"
   },
   "bin": {
     "cli-hsl-bike": "./cli.js"
   },
-  "engines" : { 
-    "node" : ">=6" 
-  }, 
+  "engines": {
+    "node": ">=6"
+  },
   "keywords": [
     "bike",
     "opendata",
@@ -26,5 +26,8 @@
     "commander": "^2.9.0",
     "geolib": "^2.0.20",
     "ramda": "^0.21.0"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1"
   }
 }
