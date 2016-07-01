@@ -6,6 +6,7 @@ var program = require('commander');
 var packageInfo = require('./package.json');
 var R = require('ramda');
 var hslBike = require('./lib/hsl-bike');
+var chalk = require('chalk');
 
 program
     .usage('[options] <station>')
@@ -34,7 +35,7 @@ if (program.simple) {
 hslBike.getByStation(targetStation, amountOfResults)
     .then(printResults)
     .catch(function (error) {
-        console.log(error);
+        console.log(chalk.red(error.message));
         program.help();
     });
     
