@@ -20,6 +20,18 @@ that station.
  -V, --version  output the version number
  -j, --json     Output JSON.
  -s, --simple   Output one result.
+ -l, --location Give latitude,longitude instead of station as the parameter.
+```
+
+### CoreLocationCLI and other CLI location tools
+
+You can pretty easily use tools like 
+[CoreLocationCLI](https://github.com/fulldecent/corelocationcli) to get nearest
+stations. Just give *--location* option and provide latitude and longitude instead of
+station. 
+
+```
+CoreLocationCLI -once yes -format '%latitude,%longitude'|xargs node cli.js --location
 ```
 
 ### Tmux
