@@ -36,15 +36,14 @@ if (program.simple) {
 if (program.location) {
     var getStations = hslBike.getByLocation;
     var [latitude, longitude] = target.split(',');
-    console.log('Searching for Latitude: ' 
-        + chalk.green(latitude)
-        + '. Longitude: '
-        + chalk.green(longitude));
-    
     target = {
         latitude: latitude,
         longitude: longitude
     };
+    console.log('Searching for Latitude: ' 
+        + chalk.green(latitude)
+        + '. Longitude: '
+        + chalk.green(longitude));
 } else {
     var getStations = hslBike.getByStation;
 }
