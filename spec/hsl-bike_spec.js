@@ -79,4 +79,44 @@ describe('get Stations', () => {
             expect(station.longitude).toBeDefined();
         });
     });
+
+    describe('by location', () => {
+        var response = {};
+
+        beforeEach((done) => {
+            response = {};
+            hslBike.getByLocation({
+                    latitude: 1.975561,
+                    longitude: 2.167891
+                }, 5)
+                .then((res) => {
+                    response = res;
+                    done();
+                })
+                .catch((error) => {
+                    done.fail(error);
+                });
+        });
+
+        it('expect name to be Test Place2', () => {
+            var station = response[0];
+            expect(station.name).toEqual('Test Place2');
+        });
+
+        it('expect to contain total spaces', () => {
+            var station = response[0];
+            expect(station.totalSpaces).toEqual(12);
+        });
+
+        it('expect to have id T2', () => {
+            var station = response[0];
+            expect(station.id).toEqual('T2');
+        });
+
+        it('expect to have latitude and longitude', () => {
+            var station = response[0];
+            expect(station.latitude).toBeDefined();
+            expect(station.longitude).toBeDefined();
+        });
+    });
 });
