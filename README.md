@@ -44,4 +44,6 @@ tmux set -g status-left ‘#[fg=green]#(cli-hsl-bike -s "Karhupuisto")‘
 
 I suggest that you set your status update interval to be a minute or maybe slower.
 
+## API
 
+For more information about the public API used: [http://dev.hsl.fi](http://dev.hsl.fi).
